@@ -1,0 +1,24 @@
+{
+  "originHash" : "a3e0ad154b35926912462ccc3a062f7c5139e83c37039764f06a84f3d47e0ecf",
+  "pins" : [
+    {
+      "identity" : "localizemacro",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rickbdotcom/LocalizeMacro",
+      "state" : {
+        "branch" : "main",
+        "revision" : "7e7e85013247b0b9f43ba7503b71ac9016e57d21"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-syntax.git",
+      "state" : {
+        "branch" : "release/6.0",
+        "revision" : "e66b92feea9385d197b1f51f64435dcd4c9508dc"
+      }
+    }
+  ],
+  "version" : 3
+}
