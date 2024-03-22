@@ -11,6 +11,8 @@ struct ContentView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(L10n.hello)
+                .frame(maxWidth: .infinity, alignment: .center)
+            
             Text(L10n.things(people: 1, geese: 1, "this month", 1))
             Text(L10n.things(people: 1, geese: 2, "this week", 1))
             Text(L10n.things(people: 1, geese: 1, "ago", 2))
@@ -19,6 +21,7 @@ struct ContentView: View {
             Text(L10n.things(people: 2, geese: 2, "ago", 1))
             Text(L10n.things(people: 2, geese: 1, "ago", 2))
             Text(L10n.things(people: 2, geese: 2, "ago", 2))
+            Spacer()
         }
         .padding()
     }
