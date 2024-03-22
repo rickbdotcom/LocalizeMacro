@@ -7,6 +7,7 @@ extension Bundle {
 
 enum L10n {
     enum CommonUI {
-        #Localize("country")
+        #Localize("company")
+        #Localize("things", arguments: ("person", Int), ("geese", String), Int, String)
     }
 }

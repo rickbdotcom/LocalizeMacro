@@ -13,8 +13,9 @@ let testMacros: [String: Macro.Type] = [
 #endif
 
 final class LocalizeMacroTests: XCTestCase {
+
     func testLocalizeMacro() throws {
-        #if canImport(LocalizeMacroMacros)
+#if canImport(LocalizeMacroMacros)
         assertMacroExpansion(
             """
             enum L10n {
@@ -34,8 +35,34 @@ final class LocalizeMacroTests: XCTestCase {
             """,
             macros: testMacros
         )
-        #else
+#else
         throw XCTSkip("macros are only supported when running tests for the host platform")
-        #endif
+#endif
+    }
+
+    func testLocalizeArgumentMacro() throws {
+#if canImport(LocalizeMacroMacros)
+        assertMacroExpansion(
+            """
+            enum L10n {
+                enum CommonUI {
+                    #Localize("Things", arguments: ("people", Int), ("geese", Int), String, Double)
+                }
+            }
+            """,
+            expandedSource: """
+            enum L10n {
+                enum CommonUI {
+                    static func things(people: Int, geese: Int, _ arg1: String, _ arg2: Double) -> String {
+                        String(localized: "L10n.CommonUI.things(\\(people), \\(geese), \\(arg1), \\(arg2))", bundle: .module)
+                    }
+                }
+            }
+            """,
+            macros: testMacros
+        )
+#else
+        throw XCTSkip("macros are only supported when running tests for the host platform")
+#endif
     }
 }

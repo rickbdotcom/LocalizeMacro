@@ -1,2 +1,2 @@
 @freestanding(declaration, names: arbitrary)
-public macro Localize(_ string: String) = #externalMacro(module: "LocalizeMacroMacros", type: "LocalizeMacro")
+public macro Localize(_ stringKey: String, arguments: Any...) = #externalMacro(module: "LocalizeMacroMacros", type: "LocalizeMacro")
